@@ -3,7 +3,10 @@ package de.hsh.dbp.campusClub.client;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.query.Query;
+import de.hsh.dbp.campusClub.entity.Department;
 import de.hsh.dbp.campusClub.entity.Person;
+import de.hsh.dbp.campusClub.entity.Student;
 
 import java.util.Date;
 
@@ -29,6 +32,14 @@ public class QueryClient {
 
     public static void sodaQuery(){
         System.out.println("[SODA query]");
+        Query query = db.query();
+        query.constrain(Student.class);
+        query.descend("major").constrain(new Department(null, "Computer Science", null)).contains();
+        ObjectSet<Student> students = query.execute();
+
+        for (Student student: students){
+            System.out.println(student);
+        }
     }
 
     public static void nativeQuery(){
