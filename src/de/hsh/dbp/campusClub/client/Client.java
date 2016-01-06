@@ -15,8 +15,6 @@ public class Client {
 
     public static void main(String[] args){
         storeCampusData();
-        getCampusData();
-
         db.close();
     }
 
@@ -65,11 +63,5 @@ public class Client {
             db.store(o);
             System.out.println("[STORE]:" + o.toString());
         }
-    }
-
-    public static void getCampusData(){
-        ObjectSet result = db.queryByExample(new Person(1001,new Date(1960,1,10),"Brad","Bredge"));
-        Person p = (Person) result.next();
-        System.out.println(p);
     }
 }
