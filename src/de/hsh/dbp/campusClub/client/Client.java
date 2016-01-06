@@ -40,13 +40,13 @@ public class Client {
         ((Department)objs.get("D01")).setDeptChair((Faculty) objs.get("2001"));
         ((Department)objs.get("D02")).setDeptChair((Faculty) objs.get("2002"));
         ((Department)objs.get("D03")).setDeptChair((Faculty) objs.get("2004"));
-        //Faculty set Department
-        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C101"));
-        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C102"));
         //CampusClub
         objs.put("C101", new CampusClub("C101", "Chess Club","Mackinac Hall A-103", "616-317-5234",(Faculty) objs.get("2004")));
         objs.put("C102", new CampusClub("C102", "Track&Field","Fieldhouse F-201", "616-331-5000",(Faculty) objs.get("2004")));
         objs.put("C103", new CampusClub("C103", "Wine Tasting","Manitou Hall B-302", "616-323-7890",null));
+        //Faculty set Department
+        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C101"));
+        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C102"));
         //Student
         objs.put("3001", new Student(3001, new Date(1995,3,12), "Jonathan", "Engelsma", "sophomore", (Department) objs.get("D01"),
                 new ArrayList<CampusClub>(Arrays.asList((CampusClub) objs.get("C101"), (CampusClub) objs.get("C102")))
