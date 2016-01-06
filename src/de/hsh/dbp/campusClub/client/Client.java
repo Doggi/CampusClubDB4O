@@ -11,8 +11,7 @@ import com.db4o.ObjectSet;
 import de.hsh.dbp.campusClub.entity.*;
 
 public class Client {
-    private static final String DB4O_FILENAME = "campusclub.db4o";
-    private static ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),DB4O_FILENAME);
+    private static ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),ClientSetting.DB4O_FILENAME);
 
     public static void main(String[] args){
         storeCampusData();
