@@ -44,6 +44,7 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
+                "person='" + super.toString() +'\'' +
                 "status='" + status + '\'' +
                 ", major=" + major +
                 ", campusClubs=" + campusClubs +

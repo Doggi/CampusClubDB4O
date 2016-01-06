@@ -47,6 +47,7 @@ public class Faculty extends Person {
     @Override
     public String toString() {
         return "Faculty{" +
+                "person='" + super.toString() +'\'' +
                 "rank='" + rank + '\'' +
                 ", advisorOf=" + advisorOf +
                 '}';
