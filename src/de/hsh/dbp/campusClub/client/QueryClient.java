@@ -8,6 +8,7 @@ import de.hsh.dbp.campusClub.entity.Department;
 import de.hsh.dbp.campusClub.entity.Person;
 import de.hsh.dbp.campusClub.entity.Student;
 
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -35,6 +36,15 @@ public class QueryClient {
         Query query = db.query();
         query.constrain(Student.class);
         query.descend("major").constrain(new Department(null, "Computer Science", null)).contains();
+        query.sortBy(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if( o1 instanceof Student && o2 instanceof Student ){
+                    return ((Student)o1).getFirstName().compareTo( ((Student) o2).getFirstName() );
+                }
+                return 0;
+            }
+        });
         ObjectSet<Student> students = query.execute();
 
         for (Student student: students){
