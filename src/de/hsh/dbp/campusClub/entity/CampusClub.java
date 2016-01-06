@@ -63,7 +63,6 @@ public class CampusClub {
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", phone='" + phone + '\'' +
-                ", advisor=" + advisor +
                 '}';
     }
 }
