@@ -6,10 +6,10 @@ import java.util.List;
 public class Faculty extends Person {
 
     private String rank;
-    private List<String> advisorOf;
+    private List<CampusClub> advisorOf;
     private Department worksIn;
 
-    public Faculty(int pId, Date dateOfBirth, String firstName, String lastName, String rank, Department worksIn) {
+    public Faculty(int pId, Date dateOfBirth, String firstName, String lastName, String rank, Department worksIn, List<CampusClub> advisorOf) {
         super(pId, dateOfBirth, firstName, lastName);
         setRank(rank);
         setAdvisorOf(advisorOf);
@@ -24,12 +24,16 @@ public class Faculty extends Person {
         this.rank = rank;
     }
 
-    public List<String> getAdvisorOf() {
+    public List<CampusClub> getAdvisorOf() {
         return advisorOf;
     }
 
-    public void setAdvisorOf(List<String> advisorOf) {
+    public void setAdvisorOf(List<CampusClub> advisorOf) {
         this.advisorOf = advisorOf;
+    }
+
+    public void addAdvisorOf(CampusClub campusClub){
+        advisorOf.add(campusClub);
     }
 
     public Department getWorksIn() {

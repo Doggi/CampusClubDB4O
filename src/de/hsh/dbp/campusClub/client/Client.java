@@ -32,14 +32,17 @@ public class Client {
         objs.put("D02", new Department("D02", "Electrical Engineering", null));
         objs.put("D03", new Department("D03", "Biology", null));
         //Faculty
-        objs.put("2001", new Faculty(2001,new Date(1955,1,5),"Jamal", "Alsabbagh", "full", (Department) objs.get("D01")));
-        objs.put("2002", new Faculty(2002,new Date(1975,3,15),"Robert", "Adams", "associate", (Department) objs.get("D02")));
-        objs.put("2003", new Faculty(2003,new Date(1985,11,25),"Jie", "Du", "assistant", (Department) objs.get("D01")));
-        objs.put("2004", new Faculty(2004,new Date(1972,11,17),"Jonathan", "Leidig", "assistant", (Department) objs.get("D01")));
+        objs.put("2001", new Faculty(2001,new Date(1955,1,5),"Jamal", "Alsabbagh", "full", (Department) objs.get("D01"), new ArrayList<CampusClub>()));
+        objs.put("2002", new Faculty(2002,new Date(1975,3,15),"Robert", "Adams", "associate", (Department) objs.get("D02"), new ArrayList<CampusClub>()));
+        objs.put("2003", new Faculty(2003,new Date(1985,11,25),"Jie", "Du", "assistant", (Department) objs.get("D01"), new ArrayList<CampusClub>()));
+        objs.put("2004", new Faculty(2004,new Date(1972,11,17),"Jonathan", "Leidig", "assistant", (Department) objs.get("D01"), new ArrayList<CampusClub>()));
         //Department set faculty
         ((Department)objs.get("D01")).setDeptChair((Faculty) objs.get("2001"));
         ((Department)objs.get("D02")).setDeptChair((Faculty) objs.get("2002"));
         ((Department)objs.get("D03")).setDeptChair((Faculty) objs.get("2004"));
+        //Faculty set Department
+        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C101"));
+        ((Faculty)objs.get("2004")).addAdvisorOf((CampusClub) objs.get("C102"));
         //CampusClub
         objs.put("C101", new CampusClub("C101", "Chess Club","Mackinac Hall A-103", "616-317-5234",(Faculty) objs.get("2004")));
         objs.put("C102", new CampusClub("C102", "Track&Field","Fieldhouse F-201", "616-331-5000",(Faculty) objs.get("2004")));
