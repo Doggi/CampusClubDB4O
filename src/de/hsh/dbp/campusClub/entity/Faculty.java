@@ -45,7 +45,6 @@ public class Faculty extends Person {
         return "Faculty{" +
                 "rank='" + rank + '\'' +
                 ", advisorOf=" + advisorOf +
-                ", worksIn=" + worksIn +
                 '}';
     }
 }

@@ -5,7 +5,7 @@ public class Department {
 
     private String code;
     private String name;
-    private Faculty deptChair;
+    private Faculty deptChair = null;
 
     public Department(String code, String name, Faculty deptChair){
         setCode(code);
@@ -42,7 +42,6 @@ public class Department {
         return "Department{" +
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", deptChair=" + deptChair +
                 '}';
     }
 }
