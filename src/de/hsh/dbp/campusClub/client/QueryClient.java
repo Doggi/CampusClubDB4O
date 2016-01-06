@@ -17,6 +17,7 @@ public class QueryClient {
         queryByExample();
         sodaQuery();
         nativeQuery();
+        db.close();
     }
 
     public static void queryByExample(){
