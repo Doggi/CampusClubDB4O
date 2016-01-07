@@ -3,12 +3,14 @@ package de.hsh.dbp.campusClub.client;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.query.Predicate;
 import com.db4o.query.Query;
 import de.hsh.dbp.campusClub.entity.Department;
 import de.hsh.dbp.campusClub.entity.Person;
 import de.hsh.dbp.campusClub.entity.Student;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by hassannahle on 07.01.16.
@@ -42,7 +44,21 @@ public class QueryClient {
         }
     }
 
+    //Native-Anfrage in Java ohne DB-Wissen umsetzbar
+    //Jedoch nicht so mächtig
+
+    //Alle Studierenden, deren Nachnamen mit H anfangen und der Fakulät "Electrical Engineering" zugeordnet sind
     public static void nativeQuery(){
         System.out.println("[native query]");
+        List<Student> studentList = db.query(new Predicate<Student>() {
+            @Override
+            public boolean match(Student student) {
+                return student.getLastName().startsWith("H") && student.getMajor().getName().equals("Electrical Engineering");
+            }
+        });
+
+        for (Student student: studentList){
+            System.out.println(student);
+        }
     }
 }
